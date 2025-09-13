@@ -58,3 +58,16 @@ git clone <your-repo-url>
 cd <repo-folder>
 ```
 
+### 2. Start Backend
+```bash
+cd server
+npm install
+npm run dev
+```
+
+### 3. Start Frontend
+```bash
+cd ..
+cd frontend
+```
+Open index.html using Live Server (VS Code plugin or any HTTP server).
