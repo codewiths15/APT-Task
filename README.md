@@ -73,3 +73,21 @@ cd ..
 cd frontend
 ```
 Open index.html using Live Server (VS Code plugin or any HTTP server).
+
+---
+
+## 🔥 Testing with Postman
+
+### Create Order (POST)
+**Endpoint**  
+POST http://localhost:4000/orders
+
+
+**Body (JSON)**
+```json
+{
+  "customer_name": "Sahil",
+  "product_name": "Laptop",
+  "status": "pending"
+}
+
