@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orders Notifications</title>
+  </head>
+  <body>
+    <h1>Live Orders Updates</h1>
+    <ul id="updates"></ul>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://localhost:4000");
+
+      socket.on("connect", () => {
+        console.log("✅ Connected to WebSocket server");
+      });
+
+      socket.on("order_update", (data) => {
+        console.log("Order Notification:", data);
+
+        const li = document.createElement("li");
+
+        // Show all order fields
+        li.textContent = `${data.action}: 
+          ID=${data.data.id}, 
+          Customer=${data.data.customer_name}, 
+          Product=${data.data.product_name}, 
+          Status=${data.data.status}, 
+          Updated At=${new Date(data.data.updated_at).toLocaleString()}`;
+
+        document.getElementById("updates").appendChild(li);
+      });
+
+      socket.on("disconnect", () => {
+        console.log("❌ Disconnected");
+      });
+    </script>
+  </body>
+</html>
