@@ -96,7 +96,7 @@ Open the client to view the real time notification
 
 ### Update Order (PUT)
 **Endpoint**  
-POST http://localhost:4000/api/orders/<id>
+POST http://localhost:4000/api/orders/${id}
 
 
 **Body (JSON)**
