@@ -95,6 +95,7 @@ POST http://localhost:4000/api/orders
 Open the client to view the real time notification
 
 ### Update Order (PUT)
+Update the same order which we just created.
 **Endpoint**  
 POST http://localhost:4000/api/orders/${id}
 
