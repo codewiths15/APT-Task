@@ -28,6 +28,8 @@ server/ → Backend service (Node.js + Express)
 ├── src/
 │ ├── controllers/ → Handle requests (CRUD)
 │ ├── services/ → Database queries
+│ ├── listeners/ → Database listeners (LISTEN/NOTIFY for order changes)
+│ ├── config/ → Configuration files (DB connection, env setup)
 │ └── app.js → Express app setup
 ├── index.js → Entry point (starts API + WebSocket server)
 ├── .env → DB connection details
