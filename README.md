@@ -23,7 +23,7 @@ We used **PostgreSQL + Node.js + Socket.IO** for the backend, and a simple **HTM
 ---
 
 ## 📂 Project Structure
-
+```
 server/ → Backend service (Node.js + Express)
 ├── src/
 │ ├── controllers/ → Handle requests (CRUD)
@@ -35,7 +35,7 @@ server/ → Backend service (Node.js + Express)
 
 frontend/ → Simple client (HTML + JS)
 └── index.html → Connects via WebSocket and shows updates
-
+```
 
 ---
 
