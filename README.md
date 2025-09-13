@@ -80,7 +80,7 @@ Open index.html using Live Server (VS Code plugin or any HTTP server).
 
 ### Create Order (POST)
 **Endpoint**  
-POST http://localhost:4000/orders
+POST http://localhost:4000/api/orders
 
 
 **Body (JSON)**
@@ -90,4 +90,48 @@ POST http://localhost:4000/orders
   "product_name": "Laptop",
   "status": "pending"
 }
+```
 
+Open the client to view the real time notification
+
+### Update Order (PUT)
+**Endpoint**  
+POST http://localhost:4000/api/orders/<id>
+
+
+**Body (JSON)**
+```json
+{
+  "status": "shipped"
+}
+```
+Open the client to view the real time notification
+
+## ✅ Why This Approach?
+
+This design was chosen because it gives us **real-time updates** in a simple and efficient way. Let’s break it down:
+
+### 🔄 No Polling
+Normally, if we want to know whether the database has changed, the client keeps **asking the server every few seconds** (“Has anything changed?”).  
+This is called **polling**. It wastes a lot of server resources because most of the time, nothing has changed.  
+
+👉 In our system, the server itself **pushes updates only when something happens**.  
+This means no unnecessary requests, faster response, and less load on the system.
+
+---
+
+### 📡 Scalable
+Since we use **Socket.IO (WebSockets)**, multiple clients (like many users in their browsers) can stay connected at the same time.  
+When one order changes in the database, the server can **broadcast the update to all clients instantly**.  
+
+👉 Even if 1000 users are connected, everyone sees the change **at the same time** without each user spamming the server with requests.
+
+---
+
+### 🛡️ Reliable
+We use PostgreSQL’s built-in **LISTEN/NOTIFY** feature.  
+This means that whenever something changes in the `orders` table, the database itself will **send a signal** to our backend.  
+
+👉 This ensures that we **never miss a change** — every insert, update, or delete is captured and forwarded to clients right away.
+
+---
