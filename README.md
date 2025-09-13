@@ -68,10 +68,9 @@ npm run dev
 ```
 
 ### 3. Start Frontend
-```bash
-cd ..
-cd frontend
-```
+
+Go to the frontend folder by opening a new tab of the code editor (VS Code).
+
 Open index.html using Live Server (VS Code plugin or any HTTP server).
 
 ---
