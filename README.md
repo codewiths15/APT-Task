@@ -32,6 +32,7 @@ server/ → Backend service (Node.js + Express)
 │ ├── config/ → Configuration files (DB connection, env setup)
 │ └── app.js → Express app setup
 ├── index.js → Entry point (starts API + WebSocket server)
+├── db.sql → Database Queries (Create and Trigger Query)
 ├── .env → DB connection details
 └── package.json
 
